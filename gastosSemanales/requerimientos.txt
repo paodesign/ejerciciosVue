@@ -1,0 +1,8 @@
+GASTOS SEMANALES
+
+Caracteristicas:
+
+* Agregar presupuesto semanal.
+* Crear un listado de gastos e ir reduciendo la cantidad del presupuesto disponible.
+* Una vez gastado el 50% mostrara el restante de color amarillo.
+* Una vez que se gaste el 75% se mostrara de el restante de color rojo.
