@@ -28,8 +28,8 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="restante alert alert-success">
-                        <p><strong>Restante: ${{obtenerResante()}} </strong><span id="restante"></span></p>
+                    <div class="alert " v-bind:class="avisoClase">
+                        <p><strong>Restante: ${{obtenerResante}} </strong><span id="restante"></span></p>
                     </div>
                 </div>
             </div>
@@ -45,6 +45,7 @@
                         </div>
 
                     </div>
+
                     <form id="agregar-gasto" action="#">
 
                         <div class="row form-group">
@@ -62,9 +63,18 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-dark" v-on:click="agregado"
+                                    v-bind:disabled='gasto.length == 0 || cantidad == 0 '>Agregar</button>
+                            </div>
+                            <div class="col-6">
+                                <div class="alert alert-success" role="alert" v-show="mostrarMsj">
+                                    Agregado correctamente.
+                                </div>  
+                            </div>
 
-                        <button type="submit" class="btn btn-dark" v-on:click="agregado"
-                            v-bind:disabled='gasto.length == 0 || cantidad == 0 '>Agregar</button>
+                        </div>
                     </form>
                 </div>
 
@@ -74,8 +84,11 @@
                         <h2 class="text-center"><u>Listado</u></h2>
 
                         <div id="gastos">
-                            <ul class="list-group-item list-group-item-danger" v-show="lista.length>0">
-                                <li v-for="gas in lista"><strong>{{gas.nombre}} ${{gas.cantidad}}</strong></li>
+                            <ul v-show="lista.length>0">
+                                <li class="list-group-item d-flex justify-content-between align-items-center"
+                                    v-for="gas in lista"><strong>{{gas.nombre}} <span
+                                            class="badge badge-primary badge-pill">
+                                            ${{gas.cantidad}}</span></strong></span></li>
                             </ul>
                         </div>
                     </div>

@@ -1,0 +1,32 @@
+<div id="app2" class="container" style="max-width:40% ;padding-top: 10%">
+    <div class="card row align-items-center">
+
+        <div class="card-body col text-white bg-dark">
+            <form>
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" class="form-control" v-model="user">
+                    <small id="usuario" class="form-text text-danger" v-if="!user && sent">*Esté campo es
+                        obligatorio. Verifique su información.</small>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" v-model="mail">
+                    <small id="email" class="form-text text-danger" v-if="!mail && sent">*Esté campo es obligatorio.
+                        Verifique su información.</small>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" class="form-control" v-model="password">
+                    <small id="contraseña" class="form-text text-danger" v-if="!password && sent">*Esté campo es
+                        obligatorio. Verifique su información.</small>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" v-model="remember">
+                    <label for="">Recordar</label>
+                </div>
+                <input type="button" value="Enviar" class="btn btn-light btn-lg btn-block" v-on:click="onSubmit">
+            </form>
+        </div>
+    </div>
+</div>
